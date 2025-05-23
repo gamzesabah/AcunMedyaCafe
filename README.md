@@ -16,6 +16,7 @@ Bu proje, Acunmedya Akademi "C# Programlama Eğitimi" kursu kapsamında gelişti
 
 📸 Galeri: Kafe’ de sunulan kahve, tatlı ve pek çok şeye dair fotoğrafları içeren bölüm.
 
+
 📱 Yorumlar: Müşterilerin yorum ve değerlendirmelerini içeren bölüm.
 
 🛠 Kullanılan Teknoloji, Araçlar ve Yöntemler
@@ -40,7 +41,7 @@ Bu proje, Acunmedya Akademi "C# Programlama Eğitimi" kursu kapsamında gelişti
 📸 Projeden Görseller
 ---
 🖼️ Ana Sayfa
-![Ekran görüntüsü 2025-05-23 132345](https://github.com/user-attachments/assets/81835d33-e2ed-4e2e-b543-49c10abfa9ac)
+![Ekran görüntüsü 2025-05-23 132128](https://github.com/user-attachments/assets/c7fa3b14-db1b-468d-9c3c-034a0bef9224)
 
 🖼️ Hakkımızda
 ![Ekran görüntüsü 2025-05-23 132152](https://github.com/user-attachments/assets/b58c6a7e-a8f3-4992-bffb-e31d75d48fae)
@@ -58,4 +59,14 @@ Bu proje, Acunmedya Akademi "C# Programlama Eğitimi" kursu kapsamında gelişti
 ---
 🔑 Admin Giriş
 ![Ekran görüntüsü 2025-05-23 131634](https://github.com/user-attachments/assets/825f54da-1e1d-4d07-8ce2-97f9489c348c)
+
 ⚙️Ana Sayfa
+![Dashboard](https://github.com/user-attachments/assets/285e1ce4-e428-4904-adc1-6e56c390b637)
+📷 Sosyal Medya
+![Ekran görüntüsü 2025-05-23 132602](https://github.com/user-attachments/assets/5895065b-ac30-42b6-b99c-97c375f2f465)
+🍔 Ürün Sayfası
+![ürünler](https://github.com/user-attachments/assets/19d0467b-9bfb-4d1f-9d60-8de1ef73aea5)
+👤 Referans
+![Ekran görüntüsü 2025-05-23 131840](https://github.com/user-attachments/assets/c1f86750-9148-41b7-9088-f01a591f5f47)
+📋 Kategori
+![Ekran görüntüsü 2025-05-23 131801](https://github.com/user-attachments/assets/4f7cc4a2-7f85-4d2e-bae9-1027f8933ba7)
