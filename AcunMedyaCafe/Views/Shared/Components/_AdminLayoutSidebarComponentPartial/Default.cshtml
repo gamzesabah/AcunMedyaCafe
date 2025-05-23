@@ -1,0 +1,66 @@
+﻿﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <a href=".../Areas/Admin/Views/Account/Index.cshtml" class="nav-link">
+                <div class="nav-profile-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFfG-6-WNCsEg/profile-displayphoto-shrink_400_400/B4DZV2DSsdHkAg-/0/1741442330134?e=1753315200&v=beta&t=nDNhCbT1tSveTVvcedNQ76nEn45Ftjg9tmDIPBtxb0Y" alt="profile" />
+                    <span class="login-status online"></span>
+                    <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                    <span class="font-weight-bold mb-2">@ViewBag.UserName</span>
+                    <span class="text-secondary text-small">Gamze Sabah</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Dashboard/">
+                <span class="menu-title">Ana Sayfa</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Category/">
+                <span class="menu-title">Kategori</span>
+                <i class="mdi mdi-folder-open menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Product/">
+                <span class="menu-title">Ürün</span>
+                <i class="mdi mdi-gift menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Gallery/">
+                <span class="menu-title">Galeri</span>
+                <i class="mdi mdi-camera menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/SocialMedia/">
+                <span class="menu-title">Sosyal Medya</span>
+                <i class="mdi mdi-link menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Testimonial/">
+                <span class="menu-title">Referans</span>
+                <i class="mdi mdi-account-group menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/About/">
+                <span class="menu-title">Hakkında</span>
+                <i class="mdi mdi-file-document menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Address/">
+                <span class="menu-title">Adres</span>
+                <i class="mdi mdi-map-marker menu-icon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

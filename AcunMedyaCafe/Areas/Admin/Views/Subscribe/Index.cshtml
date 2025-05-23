@@ -1,0 +1,50 @@
+﻿@model List<AcunMedyaCafe.Entities.Subscribe>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Abone Olanlar</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tablo</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Abone Olanlar</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Mail Adresi</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.SubscribeId</td>
+                                    <td>@item.Mail</td>
+                                    <td><a href="/Admin/Subscribe/UpdateSubscribers/@item.SubscribeId" class="badge badge-info">Güncelle</a></td>
+                                    <td><a href="/Admin/Subscribe/DeleteSubscribers/@item.SubscribeId" class="badge badge-danger">Sil</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Subscribe/AddSubscribers" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Yeni Kategori</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model AcunMedyaCafe.Entities.Subscribe
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+<body>
+
+    <header id="header">
+        @await Component.InvokeAsync("_DefaultAddressComponentPartial")
+        @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+    </header>
+    @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+    @await Component.InvokeAsync("_DefaultAboutComponentPartial")
+    @await Component.InvokeAsync("_DefaultProductComponentPartial")
+    @await Component.InvokeAsync("_DefaultGalleryComponentPartial")
+    <section class="review-area section-gap" id="review">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h2 class="mb-10">Bir Yudum Kahve, Bir Dolu Yorum:)</h2>
+                        <p>Müşterilerimizden gelen yorumlar...</p>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
+            @await Component.InvokeAsync("_DefaultStatisticComponentPartial")
+            
+        </div>
+    </section>
+    @await Component.InvokeAsync("_DefaultBlogComponentPartial")
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Hakkımızda</h6>
+                        <p>
+                            Bu proje <a href="https://github.com/gamzesabah">Gamze Sabah</a> tarafından AkademiQ Staj Eğitimi kapsamında ASP.NET Core ile yapılmıştır.
+                        </p>
+                        <p class="footer-text">
+                            <script>document.write(new Date().getFullYear());</script> Tüm hakları saklıdır | <i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank">Gamze</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Bültene üye ol!</h6>
+                        <p>Yeni kampanyalardan haberdar olmak için üye ol!</p>
+                        <div class="" id="mc_embed_signup">
+                            <form method="post" class="form-inline">
+                                <input class="form-control" asp-for="Mail" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("_DefaultSocialMediaComponentPartial")
+            </div>
+        </div>
+    </footer>
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+</body>
+</html>

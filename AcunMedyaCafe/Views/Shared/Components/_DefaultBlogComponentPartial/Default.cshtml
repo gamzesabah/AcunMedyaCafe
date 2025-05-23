@@ -1,0 +1,40 @@
+﻿@model List<AcunMedyaCafe.Entities.Blog>
+
+<section class="blog-area section-gap" id="blog">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Blog</h1>
+                    <p style="font-size: 1.1rem; font-weight: normal;"> Baristamızdan Tavsiyeler</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-12 mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 col-12">
+                                <img class="img-fluid blog-image" src="@item.ImageUrl" alt="" style="width: 300%; height: 350px; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7 col-12">
+                                @* <h6>@item.Subtitle</h6> *@
+                                <br />
+                                <a href="#"><h3>@item.Title</h3></a>
+                                <br />
+                                <p>@item.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Henüz blog bulunmamaktadır.</p>
+            }
+        </div>
+    </div>
+</section>

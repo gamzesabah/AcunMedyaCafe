@@ -1,0 +1,55 @@
+﻿@model List<AcunMedyaCafe.Entities.Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Referans Tablosu </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Referans Listesi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Referans</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık</th>
+                                <th>Açıklama</th>
+                                <th>Puan</th>
+                                <th>Resim</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Raiting ⭐</td>
+                                    <td><img src="@item.ImageUrl" style="width:100px;height:100px" /></td>
+                                    <td><a href="/Admin/Testimonial/UpdateTestimonial/@item.TestimonialId" class="badge badge-info">Güncelle</a></td>
+                                    <td><a onclick="deleteTestimonial(@item.TestimonialId)" class="badge badge-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Testimonial/AddTestimonial" class="btn btn-primary">Yeni Referans</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

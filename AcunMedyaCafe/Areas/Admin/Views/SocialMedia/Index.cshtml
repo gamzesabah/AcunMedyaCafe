@@ -1,0 +1,53 @@
+﻿@model List<AcunMedyaCafe.Entities.SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Sosyal Medya Tablosu </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Sosyal Medya Listesi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sosyal Medya</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Logo</th>
+                                <th>Platform</th>
+                                <th>Link</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td><img src="@item.IconUrl" style="width:50px; height:50px;" /></td>
+                                    <td>@item.Title</td>
+                                    <td><a href="@item.AccountUrl" class="badge badge-warning">Hesap</a></td>
+                                    <td><a href="/Admin/SocialMedia/UpdateSocialMedia/@item.SocialMediaId" class="badge badge-info">Güncelle</a></td>
+                                    <td><a onclick="deleteSocialMedia(@item.SocialMediaId)" class="badge badge-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/SocialMedia/AddSocialMedia" class="btn btn-primary">Yeni Hesap Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

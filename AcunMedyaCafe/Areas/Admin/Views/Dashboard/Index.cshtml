@@ -1,0 +1,218 @@
+﻿@model List<AcunMedyaCafe.Entities.Subscribe>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-home"></i>
+            </span> Ana Sayfa
+        </h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card card-img-holder text-white" style="background: linear-gradient(135deg, #4B2E2B, #B97A57);">
+                <div class="card-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" class="card-img-absolute" alt="Kahve Fincanı" />
+                    <h4 class="font-weight-normal mb-3">
+                        Ürün Sayısı 
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.UrunSayisi</h2>
+                    <h6 class="card-text">Ürünler</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-primary card-img-holder text-white">
+                <div class="card-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/893/893292.png" class="card-img-absolute" alt="Abone Icon" />
+                    <h4 class="font-weight-normal mb-3">
+                        Abone Sayısı <i class="mdi mdi-bookmark-outline mdi-24px float-end"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.AboneSayisi</h2>
+                    <h6 class="card-text">Aboneler</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" class="card-img-absolute" alt="Referans Icon" />
+                    <h4 class="font-weight-normal mb-3">
+                        Referans Sayısı 
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.ReferansSayisi</h2>
+                    <h6 class="card-text">Referanslar</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Kahve Tatları Grafiği -->
+    <div class="col-md-6 stretch-card grid-margin">
+        <div class="card bg-gradient-light text-dark">
+            <div class="card-body">
+                <h4 class="card-title">En çok tercih edilen kahveler</h4>
+                <canvas id="coffeeTasteChart" style="max-height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Müşteri Yorumları Grafiği -->
+    <div class="col-md-6 stretch-card grid-margin">
+        <div class="card bg-gradient-light text-dark">
+            <div class="card-body">
+                <h4 class="card-title">Müşteri Yorumları</h4>
+                <canvas id="customerFeedbackChart" style="max-height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card shadow-sm border-0 rounded-4" style="background-color: #D8BFD8;">
+            <div class="card-body" style="color:#4B2E2B ;">
+                <h4 class="card-title fw-bold mb-4">
+                    <i class="fa fa-users text-primary me-2"></i> Aboneler
+                </h4>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Mail Adresi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-semibold text-muted">@item.SubscribeId</td>
+                                    <td>@item.Mail</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-muted small mt-3">
+                    Toplam <strong>@Model.Count()</strong> abone listelendi.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('coffeeTasteChart').getContext('2d');
+    var coffeeTasteChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Espresso', 'Latte', 'Cappuccino', 'Americano', 'Mocha'],
+            datasets: [{
+                label: 'Popülerlik (%)',
+                data: [25, 20, 15, 18, 22],
+                backgroundColor: [
+                    'rgba(85, 85, 255, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: '#333',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx2 = document.getElementById('customerFeedbackChart').getContext('2d');
+    var customerFeedbackChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Olumlu', 'Nötr', 'Olumsuz'],
+            datasets: [{
+                data: [65, 20, 15],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(255, 99, 132, 0.6)'
+                ],
+                borderColor: '#333',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+</script>
+
+<style>
+    .fancy-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 16px;
+        background: linear-gradient(135deg, #ff6a00, #ee0979);
+        color: white !important;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 16px;
+    }
+
+        .fancy-link i {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .fancy-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
+        }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #4e54c8, #8f94fb) !important;
+    }
+
+    .bg-gradient-warning {
+        background: linear-gradient(135deg, #f7971e, #ffd200) !important;
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(135deg, #11998e, #38ef7d) !important;
+    }
+</style>
+
+<script src="~/PurpleAdmin/assets/vendors/chart.js/chart.umd.js"></script>
+<script src="~/PurpleAdmin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="~/PurpleAdmin/assets/js/dashboard.js"></script>

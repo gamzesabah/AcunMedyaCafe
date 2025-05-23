@@ -1,0 +1,63 @@
+﻿@model List<AcunMedyaCafe.Entities.Gallery>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header d-flex justify-content-between align-items-center">
+        <h3 class="page-title">Galeri Tablosu</h3>
+        <a href="/Admin/Gallery/AddGallery" class="btn btn-primary">
+            <i class="fa fa-plus-circle"></i> Yeni Resim Ekle
+        </a>
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Tablo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Galeri</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Resim</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.GalleryId</td>
+                                        <td>
+                                            <img src="@item.Photo" alt="Galeri Resmi" style="max-width: 120px; height: auto; border-radius: 6px;">
+                                        </td>
+                                        <td>
+                                            <a href="/Admin/Gallery/UpdateGallery/@item.GalleryId" class="badge badge-info">
+                                                <i class="fa fa-edit"></i> Güncelle
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/Admin/Galllery/DeleteGalery/@item.GalleryId" class="badge badge-danger" onclick="return confirm('Silmek istediğinize emin misiniz?');">
+                                                <i class="fa fa-trash"></i> Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
